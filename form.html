@@ -6,10 +6,61 @@
     <title>Document</title>
 </head>
 <body>
+    <h3>Form  </h3>
     <form action="/action.php">
-        <input type="text" placeholder="Type something here">
+        <input type="text" placeholder="Username ">
+        <br />
+        <br />
         <input type="Password" placeholder="Password">
-
+        <br />
+        <br />
+        <h4>Select Class</h4>
+        <label for="id1">
+        <input type="radio" value="class XI" name="class" id="id1" >class XI
+    </label>
+        <br />
+        <label for="id2">
+        <input type="radio" value="class XII" name="class" id="id2" >class XII
+    </label>
+        <br />
+        <h4>Select Subject</h4>
+        <label for="computer">
+            <input type="checkbox" value="computer" name="subject" id="id1">Computer
+        </label>
+        <br />
+        <br />
+        <label for="math">
+            <input type="checkbox" value="math" name="subject" id="id2">Math
+        </label>
+        <br />
+        <br />
+        <label for="physics">
+            <input type="checkbox" value="physics" name="subject" id="id3">Physics
+        </label>
+        <br />
+        <br />
+        <label for="english">
+            <input type="checkbox" value="english" name="subject" id="id4 ">English
+        </label>
+        <br />
+        <br />
+        <label for="chem">
+            <input type="checkbox" value="chem" name="subject" id="id1">Chemistry
+        </label>
+        <br />
+        <br />
+        Select City
+        <select name="city" id="city">
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Banglore">Banglore</option>
+            <option value="Kerla">Kerla</option>
+        </select>
+        <br />
+        <br />
+        <textarea name="feedback" id="id1" placeholder="Please give your feedback">Feedback</textarea>
+        <br />
+        <input type="submit" value="submit"> 
     </form>
 </body>
 </html>
