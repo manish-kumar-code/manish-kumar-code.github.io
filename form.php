@@ -6,12 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h3>Form  </h3>
-    <form action="/action.php">
-        <input type="text" placeholder="Username ">
+    <h2> Registeration Form  </h2>
+    <form action="connect.php" method="post">
+        <input type="text" placeholder="Username" name="Username">
         <br />
         <br />
-        <input type="Password" placeholder="Password">
+        <input type="Password" placeholder="Password" name="password">
         <br />
         <br />
         <h4>Select Class</h4>
@@ -59,12 +59,36 @@
         </select>
         <br />
         <br />
-        <input type="text" placeholder="city ">
+        <input type="text" placeholder="city " name="city">
         <br />
         <br />
         <textarea name="feedback" id="id1" placeholder="Please give your feedback">Feedback</textarea>
         <br />
-        <input type="submit" value="submit"> 
+            <input type="submit" value="submit"> </input> 
     </form>
 </body>
 </html>
+<?php
+     $username =$_POST['username'];
+     $password =$_POST['password'];
+     $class =$_POST['class'];
+     $subject =$_post['subject'];
+     $city =$_post['city'];
+     $feedback =$_post['feedback'];
+
+     $conn =new mysqli('localhost','root','','test');
+     if($conn->connect_error)
+     {
+        die('connection Failed : '.$conn->connect_error);
+     }
+     else
+     {
+        $stmt=$conn->prepare("Insert into registration(username,password,class,subject,city,feedback ) values(?,?,?,?,?,?)")
+        $stmt->bind_param("ssssss",$username,$password,$class,$subject,$city,$feedback);
+        $stmt->execute();
+        echo "registeration successfully..";
+        $stmt->close();
+        $conn->close();
+     }
+      
+  ?>
