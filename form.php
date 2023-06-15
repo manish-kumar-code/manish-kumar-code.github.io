@@ -25,22 +25,22 @@
         <br />
         <h4>Select Subject</h4>
         <label for="computer">
-            <input type="checkbox" value="computer" name="subject" id="id1">Computer
+            <input type="radio" value="computer" name="subject" id="id1">Computer
         </label>
         <br />
         <br />
         <label for="math">
-            <input type="checkbox" value="math" name="subject" id="id2">Math
+            <input type="radio" value="math" name="subject" id="id2">Math
         </label>
         <br />
         <br />
         <label for="physics">
-            <input type="checkbox" value="physics" name="subject" id="id3">Physics
+            <input type="radio" value="physics" name="subject" id="id3">Physics
         </label>
         <br />
         <br />
         <label for="english">
-            <input type="checkbox" value="english" name="subject" id="id4 ">English
+            <input type="radio" value="english" name="subject" id="id4 ">English
         </label>
         <br />
         <br />
@@ -83,7 +83,7 @@
      }
      else
      {
-        $stmt=$conn->prepare("Insert into registration(username,password,class,subject,city,feedback ) values(?,?,?,?,?,?)")
+        $stmt=$conn->prepare("Insert into registration(username,password,class,subject,city,feedback ) values(?,?,?,?,?,?)");
         $stmt->bind_param("ssssss",$username,$password,$class,$subject,$city,$feedback);
         $stmt->execute();
         echo "registeration successfully..";
