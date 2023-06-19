@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    $conn = new mysqli('localhost','root',' ','fman');
+</body>
+</html>
+$stmt=$conn->prepare("Insert into register1(Name,Contact,E-mail,Address,Gender,DOB) values(?,?,?,?,?,?)");
+$stmt->bind_param("siisss",$Name,$date,$tel,$id,$Gender,$add);
+$stmt->execute();
+echo "registeration successfully..";
+$stmt->close();
+$conn->close();
