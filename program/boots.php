@@ -12,8 +12,15 @@
 <body>
   <div class="container">
     <h2>IIST Thiruvananthapuram </h2>
-    <p>Registeration Form</p>
-    <form action="  " method="post">
+    <p>  Form</p>
+    <!-- <?php
+     $insert = false;
+    if($insert == true)
+    {
+    echo "<p class='submitmsg'>Thanks for submittingyour form.</p>";
+    }
+    ?> -->
+    <form action="boots.php" method="post">
       Name: <input type="text" name="name" id="name" placeholder="Enter your name">
       <br><br>
       Age: <input type="text" name="age" id="age" placeholder="Enter your age">
@@ -24,7 +31,7 @@
       <br><br>
       Contact No.: <input type="phone" name="phone" id="phone" placeholder="Enter your phone">
       <br><br>
-      Feedback: <textarea name="desc" id="desc" cols="20" rows="10"
+      Address: <textarea name="address" id="address" cols="10" rows="10"
         placeholder="Enter any other information"></textarea>
       <br>
       <button class="btn">Submit</button>
@@ -40,32 +47,37 @@
 </html>
 
 <?php
+
 if (isset($_POST['name'])) {
-  $server = "localhost";
+  $server = "localhost"; 
   $username = "root";
   $password = "";
-  $con = mysqli_connect($server, $username, $password);
+  $con = mysqli_connect($server, $username, $password,'fman');
 
   if (!$con) {
     die("connection to this database failed due to" . mysqli_connect_error());
   }
-
+// echo "Successs connecting to the db";
 
   $name = $_POST['name'];
   $age = $_POST['age'];
   $gender = $_POST['gender'];
   $email = $_POST['email'];
   $phone = $_POST['phone'];
-  $desc = $_POST['desc'];
+  $address = $_POST['address'];
 
-  $sql = "INSERT INTO `index` (`name`, `age`, `gender`, `email`, `contact`, `feedback` ) VALUES ('$name', '$age', '$gender', '$email', '$phone', '$desc', current_timestamp());";
+  $sql = "insert into `boots`( `name`, `age`, `gender`, `email`, `phone`, `address`)  VALUES ('$name', '$age', '$gender', '$email', '$phone', '$address');";
   echo $sql;
 
-  if ($con->query($sql) == true) 
+  if ($con->query ($sql) == true) 
   {
     echo "Successful inserted";
-  } else {
+    // $insert = true;
+  }
+   else 
+  {
     echo "ERRor:$sql <br> $con->error";
+    // $not_insert = true;
   }
   $con->close();
 }
