@@ -53,9 +53,9 @@ if($total != 0)
             <td>".$result['email']."</td>
             <td>".$result['phone']." </td>
             <td>".$result['address']."</td>
-            <td><a href='update.php?id=$result[id]'><input type='submit' value='Update' class='update'</a> 
+            <td><a href='update.php?id=$result[id]'><input type='submit' value='Update' class='update'></a> 
             
-             <a href='delete.php?id=$result[id]'><input type='submit' value='Delete' class='delete' onclick='return  checkdelete()'</a></td>
+             <a href='delete.php?id=$result[id]'><input type='submit' value='Delete' class='delete' onclick='return  checkdelete()'></a></td>
           </tr>";
    }
 }
@@ -72,6 +72,6 @@ else
 <script>
   function checkdelete()
   {
-    return Confirm('Are you sure your want to delete this record ?');
+    return Confirm('Are you sure you want to delete this record ?');
   }
 </script>

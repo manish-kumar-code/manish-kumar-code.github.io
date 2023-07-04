@@ -57,14 +57,7 @@ $result = mysqli_fetch_assoc($data);
 <?php
 
 if (isset($_POST['update'])) {
-  $server = "localhost";
-  $username = "root";
-  $password = "";
-  $con = mysqli_connect($server, $username, $password,'fman');
-
-  if (!$con) {
-    die("connection to this database failed due to" . mysqli_connect_error());
-  }
+ 
 // echo "Successs connecting to the db";
 
   $name = $_POST['name'];
@@ -90,7 +83,7 @@ if (isset($_POST['update'])) {
   }
    else 
   {
-    echo "ERRor:$sql <br> $con->error";
+    echo "Error:$sql <br> $con->error";
     // $not_insert = true;
   }
   $con->close();

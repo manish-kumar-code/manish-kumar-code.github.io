@@ -1,0 +1,261 @@
+<?php include("../includes/config.php")?>
+<?php include("header.php")?>
+<?php include("sidebar.php")?>
+
+
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Manage Accounts</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+              <li class="breadcrumb-item active"><?php echo ucfirst($_REQUEST['user'])?></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content"> 
+      <div class="container-fluid">
+        <!-- Info boxes -->
+        <div class="tabel-responsive">
+            <thead>
+              <tr>
+                <th width="10%">S.No.</th>   
+                <th width="20%">Name</th>
+                <th width="10%">Student id</th> 
+                <th width="20%">Email</th> 
+                <th width="20%">Contact No.</th> 
+                <th width="20%">Action</th> 
+              </tr> 
+            </thead>
+            <tbody>
+              <?php
+                $count = 1;
+                $user_query = 'SELECT * FROM `pendingapproval` `type`="'.$_REQUEST['user'].'"';
+                $user_result = mysqli_query($db_conn , $user_query); 
+                while ($users = mysqli_fetch_object($user_result))
+                {  echo "<br>"; 
+              ?>
+              <br>
+              <tr>
+                <td><?=$count++?></td>
+                <td><?=$users->name?></td>
+                <td><?=$users->id?> </td>
+                <td><?=$users->email?></td>
+                <td><?=$users->phone?></td>
+                <td>
+                  <a href='#'><input type='approve' value='Approve' class='approve'></a>            
+                </td>                
+              </tr>
+              <?php  }?>
+            </tbody> 
+          </tabel>         
+        </div>
+        <!-- /.row -->
+     </div>
+    </section>
+<?php include("footer.php")?>
+
+
+
+
+<?php include("../includes/config.php")?>
+<?php include("header.php")?>
+<?php include("sidebar.php")?>
+
+
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Manage Accounts</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+              <li class="breadcrumb-item active"><?php echo ucfirst($_REQUEST['user'])?></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content"> 
+    <?php
+error_reporting(0);
+ $server = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname="file";
+  $con = mysqli_connect($server, $username, $password,$dbname);
+  $count = 1;
+  if($con)
+  {
+    // echo "connection ok";
+     
+  }
+  else
+   {
+    echo "connection  failed" . mysqli_connect_error();
+  }
+$query = "SELECT * FROM pendingapproval";
+$data = mysqli_query($con,$query);
+$total = mysqli_num_rows($data);
+// echo $total;
+
+if($total != 0)
+{$count = 1;
+  ?>
+<h2 align="center">Pending Users</h2>
+<center>
+<table border="1" cellspacing="7" width="85%">
+  <tr>
+  <th width="5%">S.No.</th>
+  <th width="20%">name</th>
+  <th width="10%">id</th>
+  <th width="25%">email</th>
+  <th width="15%">phone</th>
+  <th width="10%">Operations</th>
+</tr>
+  <?php
+   while($result = mysqli_fetch_assoc($data))
+   {
+    echo "<tr>
+            <td><?=$count++?></td>
+            <td>".$result['name']."</td>
+            <td>".$result['id']."</td>  
+            <td>".$result['email']."</td>
+            <td>".$result['phone']." </td>
+            
+            <td><a href='update.php?id=$result[id]'><input type='submit' value='Approve' class='Approve'</a> 
+            
+          </tr>";
+   }
+}
+else
+{
+  echo "No records found";
+}
+
+?>
+
+</table>
+</center>
+
+    </section>
+<?php include("footer.php")?>
+
+
+
+
+
+
+
+
+
+
+<?php include("../includes/config.php")?>
+<?php include("header.php")?>
+<?php include("sidebar.php")?>
+
+
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Manage Accounts</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Accounts</a></li>
+              <li class="breadcrumb-item active"><?php echo ucfirst($_REQUEST['user'])?></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content"> 
+    <?php
+error_reporting(0);
+ $server = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname="file";
+  $con = mysqli_connect($server, $username, $password,$dbname);
+
+  if($con)
+  {
+    // echo "connection ok";
+     
+  }
+  else
+   {
+    echo "connection  failed" . mysqli_connect_error();
+  }
+$query = "SELECT * FROM pendingapproval";
+$data = mysqli_query($con,$query);
+$total = mysqli_num_rows($data);
+
+// echo $total;
+
+if($total != 0)
+{
+  ?>
+<h2 align="center">All Records</h2>
+<center>
+<table border="1" cellspacing="7" width="100%">
+  <tr>
+  <th width="10%">S.No.</th>
+  <th width="10%">name</th>
+  
+  
+  <th width="20%">email</th>
+  <th width="10%">phone</th>
+  
+  <th width="10%">Operations</th>
+</tr>
+  <?php
+   while($result = mysqli_fetch_assoc($data))
+   {
+    echo "<tr>
+            <td>".$result['S.No.']."</td>
+            <td>".$result['name']."</td>
+            <td>".$result['id']."</td>  
+            <td>".$result['email']."</td>
+            <td>".$result['phone']." </td>
+            
+            <td><a href='update.php?id=$result[id]'><input type='submit' value='Approve' class='Approve'</a> 
+            
+          </tr>";
+   }
+}
+else
+{
+  echo "No records found";
+}
+
+?>
+
+</table>
+</center>
+
+    </section>
+<?php include("footer.php")?>

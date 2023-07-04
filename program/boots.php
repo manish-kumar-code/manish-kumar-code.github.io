@@ -13,13 +13,6 @@
   <div class="container">
     <h2>IIST Thiruvananthapuram </h2>
     <p>  Form</p>
-    <!-- <?php
-     $insert = false;
-    if($insert == true)
-    {
-    echo "<p class='submitmsg'>Thanks for submittingyour form.</p>";
-    }
-    ?> -->
     <form action="boots.php" method="post">
       Name: <input type="text" name="name" id="name" placeholder="Enter your name">
       <br><br>
@@ -76,7 +69,7 @@ if (isset($_POST['name'])) {
   }
    else 
   {
-    echo "ERRor:$sql <br> $con->error";
+    echo "Error:$sql <br> $con->error";
     // $not_insert = true;
   }
   $con->close();
