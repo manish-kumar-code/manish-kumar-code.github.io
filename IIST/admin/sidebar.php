@@ -108,13 +108,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./user-accounts.php?user=pending" class="nav-link">
+                <a href="pending.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pending Users</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./user-accounts.php?user=approved" class="nav-link">
+                <a href="approve.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Approved Users</p>
                 </a>

@@ -1,5 +1,5 @@
 <?php include('header.php')?>
-<!-- <?php include('connection.php')?> -->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-fluit">
   <div class="container-fluid">
     <ul class="navbar-nav">
@@ -66,7 +66,7 @@
                     <br><br>
                     Contact No.: <input type="phone" name="phone" id="phone" placeholder="Mobile Number" required>
                     <br><br>
-                    Password: <input type="password" name="password" id="password" placeholder="Password" required >
+                    Password: <input type="password" name="password" id="password" placeholder="Password" required>
                     <br><br>
                     Confirm Password: <input type="text" name="conpassword" id="password" placeholder="Confirm Password" required>
                     <br><br>
@@ -109,7 +109,8 @@ if (isset($_POST['name']))
   $conpassword =  $_POST['conpassword'];
   
   // $v_code = bin2hex(random_bytes(16));
-  $sql = "INSERT INTO `store` ( `name`, `id`, `email`, `phone`, `password`, `conpassword`) VALUES ('$name', '$id', '$email', '$phone', '$password', '$conpassword');";
+  $sql="INSERT INTO `store` (`Sno`, `name`, `id`, `email`, `phone`, `password`, `conpassword`, `type`) VALUES (NULL, '$name', '$id', '$email', '$phone', '$password', '$conpassword', 'pending');";
+  // $sql = "INSERT INTO `store` ( `name`, `id`, `email`, `phone`, `password`, `conpassword`) VALUES ('$name','$name', '$id', '$email', '$phone', '$password', '$conpassword');";
   echo $sql;
 
   if ($con->query ($sql) == true) 
